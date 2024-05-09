@@ -1,7 +1,22 @@
+import { useContext } from "react"
+import { GlobalContext } from "../context"
+import RecipeItem from "../components/Recipe_item"
 
 
 
 export default function Home(){
+    
+    const {recipeList,loading,error} = useContext(GlobalContext)
+    console.log(recipeList)
+    return <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+    {
+      recipeList.map((rec)=>{
+   return <RecipeItem/>
+         
+      })
 
-    return <div className="text-3xl font-semibold text-indigo-700">Hello</div>
+    }
+     
+
+    </div>
 }
