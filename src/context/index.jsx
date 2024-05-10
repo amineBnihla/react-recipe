@@ -8,6 +8,7 @@ export default function GlobalComppopnentContext({children}){
     const [loading,setLoading] = useState(false)
     const [search,setSearch] = useState("")
     const [error,setError] = useState("")
+    const [recipeDetailItem,setRecipeDetailItem] = useState(null)
      async function getRecipes(e){
      e.preventDefault()
          setLoading(true)
@@ -25,7 +26,7 @@ export default function GlobalComppopnentContext({children}){
 
      }
 
-    return <GlobalContext.Provider value={{search,setSearch,getRecipes,recipeList,error,loading}}>
+    return <GlobalContext.Provider value={{search,setSearch,getRecipes,recipeList,error,loading,recipeDetailItem,setRecipeDetailItem}}>
         {children}
     </GlobalContext.Provider>
 }

@@ -8,11 +8,13 @@ function App() {
   return (
     <>
     <Navbar/>
+    <div className="py-20 px-10">
     <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path="/details" element={<Detail/>} />
+      <Route path="/details/:id" element={<Detail/>} />
       <Route path="/favourites" element={<Favourites/>} />
     </Routes>
+    </div>
     </>
   )
 }

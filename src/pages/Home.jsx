@@ -11,7 +11,7 @@ export default function Home(){
     return <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
     {
       recipeList.map((rec)=>{
-   return <RecipeItem/>
+   return <RecipeItem recipe={rec} key={rec.id}/>
          
       })
 
