@@ -9,6 +9,7 @@ export default function GlobalComppopnentContext({children}){
     const [search,setSearch] = useState("")
     const [error,setError] = useState("")
     const [recipeDetailItem,setRecipeDetailItem] = useState(null)
+     const [favouriteList,setFavouriteList]= useState([])
      async function getRecipes(e){
      e.preventDefault()
          setLoading(true)
@@ -26,7 +27,19 @@ export default function GlobalComppopnentContext({children}){
 
      }
 
-    return <GlobalContext.Provider value={{search,setSearch,getRecipes,recipeList,error,loading,recipeDetailItem,setRecipeDetailItem}}>
+     function toggleFavourite(recipeItem){
+     const index = favouriteList.findIndex((res)=> res.id == recipeItem.id)
+     const tempFavourites = [...favouriteList]
+    if(index == -1){
+        tempFavourites.push(recipeItem)
+    }else{
+        tempFavourites.splice(index)
+    }
+    console.log(index, tempFavourites)
+    setFavouriteList(tempFavourites)
+     }
+
+    return <GlobalContext.Provider value={{search,setSearch,getRecipes,recipeList,error,loading,recipeDetailItem,setRecipeDetailItem,favouriteList,toggleFavourite}}>
         {children}
     </GlobalContext.Provider>
 }
